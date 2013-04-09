@@ -21,7 +21,7 @@ SC_MODULE(InterChangeUnit) {
     SC_HAS_PROCESS(InterChangeUnit);
     
     InterChangeUnit(sc_module_name name) {
-        dont_initialize();
+
         SC_THREAD(test_thread);
         
         size = Memory::SIZE;

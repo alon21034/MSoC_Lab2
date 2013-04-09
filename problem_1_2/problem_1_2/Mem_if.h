@@ -17,6 +17,7 @@ struct Mem_if: public sc_interface {
     virtual void word_read(unsigned x, unsigned y, unsigned long& d) = 0;
     virtual void word_write(unsigned x, unsigned y, unsigned long d) = 0;
     
+    virtual void display() = 0;
 };
 
 #endif

@@ -21,10 +21,10 @@ void Memory::direct_write(unsigned long** block) {
     for (int i = 0 ; i < SIZE ; ++i) {
         for (int j = 0 ; j < SIZE; ++j) {
             data[i][j] = block[i][j];
-            cout << data[i][j] << "  ";
         }
-        cout << endl;
     }
+    
+    display();
 }
 
 void Memory::word_read(unsigned x, unsigned int y, unsigned long& d) {
@@ -35,4 +35,13 @@ void Memory::word_read(unsigned x, unsigned int y, unsigned long& d) {
 void Memory::word_write(unsigned x, unsigned y, unsigned long d) {
     assert(x < SIZE && y < SIZE);
     data[x][y] = d;
+}
+
+void Memory::display() {
+    for (int i = 0 ; i < SIZE ; ++i) {
+        for (int j = 0 ; j < SIZE; ++j) {
+            cout << data[i][j] << "  ";
+        }
+        cout << endl;
+    }
 }

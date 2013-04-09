@@ -39,10 +39,11 @@ SC_MODULE(Memory), Mem_if {
     void word_read(unsigned, unsigned, unsigned long&);
     void word_write(unsigned, unsigned, unsigned long);
     
+    void display();
+    
     static const int SIZE = 8;
     
 private:
-    
     
     unsigned long** data;
     

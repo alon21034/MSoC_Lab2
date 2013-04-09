@@ -70,11 +70,6 @@
 		342B1432171488F500991819 /* problem_1_2 */ = {
 			isa = PBXGroup;
 			children = (
-				342B14401714893700991819 /* InterChangeUnit.h */,
-				342B14411714893700991819 /* InterChangeUnit.cpp */,
-				342B14421714893700991819 /* Memory.cpp */,
-				342B14431714893700991819 /* Memory.h */,
-				342B14441714893700991819 /* Mem_if.h */,
 				342B1436171488F500991819 /* problem_1_2.1 */,
 				342B1433171488F500991819 /* Source */,
 				342B1438171488F500991819 /* Libraries */,
@@ -85,6 +80,11 @@
 		342B1433171488F500991819 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				342B14401714893700991819 /* InterChangeUnit.h */,
+				342B14411714893700991819 /* InterChangeUnit.cpp */,
+				342B14421714893700991819 /* Memory.cpp */,
+				342B14431714893700991819 /* Memory.h */,
+				342B14441714893700991819 /* Mem_if.h */,
 				342B1434171488F500991819 /* main.cpp */,
 			);
 			name = Source;
@@ -260,6 +260,7 @@
 				342B143F171488F500991819 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
