@@ -20,7 +20,7 @@ void InterChangeUnit::test_thread() {
         buf[i] = new unsigned long[size];
 
     LD->write(false);
-    
+    wait(CLK.posedge_event());
     for (unsigned int i = 0 ; i < size; ++i) {
         for (unsigned int j = 0 ; j < size; ++j) {
             //read
@@ -30,7 +30,6 @@ void InterChangeUnit::test_thread() {
             X->write(i);
             Y->write(j);
             wait(CLK.posedge_event());
-            wait(CLK.posedge_event());
             D->write("z");
             buf[i][j] = D->read().to_long();
            
@@ -38,14 +37,6 @@ void InterChangeUnit::test_thread() {
             LD->write(false);
         }
     }
-    
-    for (int i = 0 ; i < size ; i++ ) {
-        for (int j = 0 ; j < size ; j++) {
-            cout << buf[i][j] << " ";
-        }
-        cout << endl;
-    }
-    cout << endl;
     
     for (unsigned int i = 0 ; i < size ; ++i) {
         for (unsigned int j = 0 ; j < size ; ++j) {
@@ -57,7 +48,7 @@ void InterChangeUnit::test_thread() {
             Y->write(j);
             D->write(buf[j][i]);
             //cout << i << " " << j << " " << buf[j][i] << endl;
-            wait(CLK.posedge_event());
+            wait(SC_ZERO_TIME);
             LD->write(false);
         }
     }

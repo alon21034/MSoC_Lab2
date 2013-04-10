@@ -25,8 +25,6 @@ void Memory::data_thread() {
         unsigned x = X->read();
         unsigned y = Y->read();
         
-        wait(CLK.negedge_event());
-        
         if (RW->read()) {
             // read
             //cout << "read: " << x << " " << y << " " << data[x][y] << endl;
