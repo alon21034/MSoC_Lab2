@@ -22,7 +22,7 @@ void MemoryAdapter::data_thread() {
         unsigned x = X->read();
         unsigned y = Y->read();
         
-        wait(CLK.negedge_event());
+        //wait(CLK.negedge_event());
         if (RW->read()) {
             //read
             unsigned long d;
