@@ -17,9 +17,18 @@
 
 using namespace std;
 
-SC_MODULE(Memory), Mem_if {
+SC_MODULE(Memory) {
     
-    SC_CTOR(Memory) {
+    sc_in_clk CLK;
+    sc_in<bool> LD;
+    sc_in<bool> RW;
+    sc_in<unsigned> X;
+    sc_in<unsigned> Y;
+    sc_inout_rv<32> D;
+    
+    SC_HAS_PROCESS(Memory);
+    
+    Memory(sc_module_name name) {
         srand(time(0));
         
         data = new unsigned long*[SIZE];
@@ -31,15 +40,21 @@ SC_MODULE(Memory), Mem_if {
             }
             cout << endl;
         }
+        
+        SC_THREAD(data_thread);
+        sensitive << CLK.neg();
     }
     
-    void direct_read(unsigned long**&);
-    void direct_write(unsigned long**);
+    void data_thread();
     
-    void word_read(unsigned, unsigned, unsigned long&);
-    void word_write(unsigned, unsigned, unsigned long);
-    
-    void display();
+    void display() {
+        for (int i = 0 ; i < SIZE ; ++i) {
+            for (int j = 0 ; j < SIZE ; ++j) {
+                cout << data[i][j] << " ";
+            }
+            cout << endl;
+        }
+    }
     
     static const int SIZE = 8;
     

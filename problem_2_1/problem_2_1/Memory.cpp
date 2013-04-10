@@ -13,35 +13,33 @@
 
 using namespace std;
 
-void Memory::direct_read(unsigned long** &block) {
-    block = data;
-}
-
-void Memory::direct_write(unsigned long** block) {
-    for (int i = 0 ; i < SIZE ; ++i) {
-        for (int j = 0 ; j < SIZE; ++j) {
-            data[i][j] = block[i][j];
-        }
-    }
+void Memory::data_thread() {
+    cout << "data thread start!!" << endl;
     
-    display();
-}
-
-void Memory::word_read(unsigned x, unsigned int y, unsigned long& d) {
-    assert(x < SIZE && y < SIZE);
-    d = data[x][y];
-}
-
-void Memory::word_write(unsigned x, unsigned y, unsigned long d) {
-    assert(x < SIZE && y < SIZE);
-    data[x][y] = d;
-}
-
-void Memory::display() {
-    for (int i = 0 ; i < SIZE ; ++i) {
-        for (int j = 0 ; j < SIZE; ++j) {
-            cout << data[i][j] << "  ";
+    for(;;) {
+        while (LD->read() == false) {
+            wait(LD->value_changed_event());
+        };
+        
+        //cout << "wait x, y, RW signal" << endl;
+        unsigned x = X->read();
+        unsigned y = Y->read();
+        
+        wait(CLK.negedge_event());
+        
+        if (RW->read()) {
+            // read
+            //cout << "read: " << x << " " << y << " " << data[x][y] << endl;
+            D->write(data[x][y]);
+            wait(CLK.negedge_event());
+        } else {
+            // write
+            D->write("z");
+            wait(CLK.negedge_event());
+            data[x][y] = D->read().to_long();
+            //cout << data[x][y] << endl;
+            //cout << "write: " << x << " " << y << " " << data[x][y] << endl;
+            
         }
-        cout << endl;
     }
 }

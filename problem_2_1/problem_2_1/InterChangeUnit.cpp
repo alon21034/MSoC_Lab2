@@ -20,15 +20,18 @@ void InterChangeUnit::test_thread() {
     
     for (unsigned int i = 0 ; i < size; ++i) {
         for (unsigned int j = 0 ; j < size; ++j) {
+            //cout << "::" << i << j << endl;
             mem->word_read(i, j, buf[i][j]);
+            //cout << buf[i][j] << endl;
         }
     }
     
     for (unsigned int i = 0 ; i < size ; ++i) {
         for (unsigned int j = 0 ; j < size ; ++j) {
-            mem->word_write(j, i, buf[i][j]);
+            //cout << "::" << i << j << "  " << buf[i][j] << endl;
+            mem->word_write(i, j, buf[j][i]);
         }
     }
     
-    mem->display();
+    cout << "finished!!" << endl;
 }

@@ -12,6 +12,7 @@
 		342B145A17148C4400991819 /* libsystemc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342B145917148C4400991819 /* libsystemc.a */; };
 		342B146517148C6600991819 /* InterChangeUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 342B146317148C6600991819 /* InterChangeUnit.cpp */; };
 		342B146617148C6600991819 /* Memory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 342B146417148C6600991819 /* Memory.cpp */; };
+		342B146917148D2900991819 /* MemoryAdapter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 342B146717148D2900991819 /* MemoryAdapter.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		342B146217148C6600991819 /* Memory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Memory.h; sourceTree = "<group>"; };
 		342B146317148C6600991819 /* InterChangeUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InterChangeUnit.cpp; sourceTree = "<group>"; };
 		342B146417148C6600991819 /* Memory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Memory.cpp; sourceTree = "<group>"; };
+		342B146717148D2900991819 /* MemoryAdapter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MemoryAdapter.cpp; sourceTree = "<group>"; };
+		342B146817148D2900991819 /* MemoryAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryAdapter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				342B146317148C6600991819 /* InterChangeUnit.cpp */,
 				342B146417148C6600991819 /* Memory.cpp */,
 				342B145417148C4400991819 /* main.cpp */,
+				342B146717148D2900991819 /* MemoryAdapter.cpp */,
+				342B146817148D2900991819 /* MemoryAdapter.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				342B145517148C4400991819 /* main.cpp in Sources */,
 				342B146517148C6600991819 /* InterChangeUnit.cpp in Sources */,
 				342B146617148C6600991819 /* Memory.cpp in Sources */,
+				342B146917148D2900991819 /* MemoryAdapter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
